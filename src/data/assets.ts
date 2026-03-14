@@ -21,6 +21,13 @@ export interface Category {
   icon?: string;
 }
 
+const CLOUDINARY_BASE = 'https://res.cloudinary.com/dt9juhppj';
+
+const getCloudinaryUrl = (localPath: string, type: 'video' | 'image'): string => {
+  const cleanPath = localPath.replace('/assets/', '');
+  return `${CLOUDINARY_BASE}/${type}/upload/${cleanPath}`;
+};
+
 export const categories: Category[] = [
   { id: 'bianxing', name: '变形/变身', count: 0 },
   { id: 'chuchang', name: '人物出场', count: 0 },
@@ -43,7 +50,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: 'X战警',
-    path: '/assets/000电影画面/X战警/万磁王/万磁王.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/X战警/万磁王/万磁王.mp4', 'video'),
     tags: ['超能力', '变形', '科幻'],
     shotType: '特写',
     cameraMovement: '推镜',
@@ -54,7 +61,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: 'X战警',
-    path: '/assets/000电影画面/X战警/变脸1/变脸1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/X战警/变脸1/变脸1.mp4', 'video'),
     tags: ['超能力', '面部特写'],
   },
   {
@@ -63,7 +70,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: 'X战警',
-    path: '/assets/000电影画面/X战警/变身2/变身2.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/X战警/变身2/变身2.mp4', 'video'),
     tags: ['超能力', '变形'],
   },
   {
@@ -72,7 +79,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: 'X战警',
-    path: '/assets/000电影画面/X战警/地面打开/地面打开.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/X战警/地面打开/地面打开.mp4', 'video'),
     tags: ['魔法', '场景变化'],
   },
   {
@@ -81,7 +88,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '全面回忆',
-    path: '/assets/000电影画面/全面回忆/人物出场/人物出场.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/全面回忆/人物出场/人物出场.mp4', 'video'),
     tags: ['人物', '出场', '慢动作'],
     duration: 13,
   },
@@ -91,7 +98,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chengshiyunju',
     movie: '全面回忆',
-    path: '/assets/000电影画面/全面回忆/城市运镜/城市运镜.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/全面回忆/城市运镜/城市运镜.mp4', 'video'),
     tags: ['城市', '航拍', '运动'],
   },
   {
@@ -100,7 +107,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chengshiyunju',
     movie: '全面回忆',
-    path: '/assets/000电影画面/全面回忆/悬浮车/悬浮车1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/全面回忆/悬浮车/悬浮车1.mp4', 'video'),
     tags: ['未来', '车辆', '科幻'],
   },
   {
@@ -109,7 +116,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'qita',
     movie: '全面回忆',
-    path: '/assets/000电影画面/全面回忆/失重/失重.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/全面回忆/失重/失重.mp4', 'video'),
     tags: ['失重', '特效'],
   },
   {
@@ -118,7 +125,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'zhuandong',
     movie: '创世纪',
-    path: '/assets/000电影画面/创世纪/创-片头.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/创世纪/创-片头.mp4', 'video'),
     tags: ['片头', '科幻'],
   },
   {
@@ -127,7 +134,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '创世纪',
-    path: '/assets/000电影画面/创世纪/屏幕交互-1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/创世纪/屏幕交互-1.mp4', 'video'),
     tags: ['屏幕', '交互', '科技'],
   },
   {
@@ -136,7 +143,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '创世纪',
-    path: '/assets/000电影画面/创世纪/扫描交互-1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/创世纪/扫描交互-1.mp4', 'video'),
     tags: ['扫描', '交互', '科技'],
   },
   {
@@ -145,7 +152,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/大黄蜂变身1/大黄蜂变身1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/大黄蜂变身1/大黄蜂变身1.mp4', 'video'),
     tags: ['机器人', '变身', '变形金刚'],
   },
   {
@@ -154,7 +161,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/变形金刚变形2/变形金刚变形2.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/变形金刚变形2/变形金刚变形2.mp4', 'video'),
     tags: ['机器人', '变形'],
   },
   {
@@ -163,7 +170,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'jiazhang',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/建筑生长细节/建筑生长细节.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/建筑生长细节/建筑生长细节.mp4', 'video'),
     tags: ['建筑', '生长', '特效'],
   },
   {
@@ -172,7 +179,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'jiazhang',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/环境变化生长/环境变化生长.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/环境变化生长/环境变化生长.mp4', 'video'),
     tags: ['环境', '变化', '生长'],
   },
   {
@@ -181,7 +188,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'qita',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/神圣的时刻1/神圣的时刻1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/神圣的时刻1/神圣的时刻1.mp4', 'video'),
     tags: ['情感', '特写'],
   },
   {
@@ -190,7 +197,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'zhuandong',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/颠倒城市/颠倒城市.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/颠倒城市/颠倒城市.mp4', 'video'),
     tags: ['颠倒', '城市', '特效'],
   },
   {
@@ -199,7 +206,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/世界静止/世界静止.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/世界静止/世界静止.mp4', 'video'),
     tags: ['静止', '时间', '特效'],
   },
   {
@@ -208,7 +215,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/人物故障/人物故障.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/人物故障/人物故障.mp4', 'video'),
     tags: ['故障', '特效', 'Glitch'],
   },
   {
@@ -217,7 +224,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'baozha',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/城市坍塌1/城市坍塌1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/城市坍塌1/城市坍塌1.mp4', 'video'),
     tags: ['坍塌', '毁灭', '特效'],
   },
   {
@@ -226,7 +233,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'baozha',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/城市毁灭/城市毁灭.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/城市毁灭/城市毁灭.mp4', 'video'),
     tags: ['毁灭', '灾难', '特效'],
   },
   {
@@ -235,7 +242,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/光影场景/光影场景.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/光影场景/光影场景.mp4', 'video'),
     tags: ['光影', '氛围'],
   },
   {
@@ -244,7 +251,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'shipianwei',
     movie: '失控玩家',
-    path: '/assets/000电影画面/失控玩家/片尾1/片尾1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/失控玩家/片尾1/片尾1.mp4', 'video'),
     tags: ['片尾', '动画'],
   },
   {
@@ -253,7 +260,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'jiazhang',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/建筑生长/建筑生长.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/建筑生长/建筑生长.mp4', 'video'),
     tags: ['建筑', '生长', '城市'],
   },
   {
@@ -262,7 +269,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'lieche',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/赛车飞跃/赛车飞跃.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/赛车飞跃/赛车飞跃.mp4', 'video'),
     tags: ['赛车', '运动', '速度'],
   },
   {
@@ -271,7 +278,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'baozha',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/战争场面1/战争场面1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/战争场面1/战争场面1.mp4', 'video'),
     tags: ['战争', '战斗', '大规模'],
   },
   {
@@ -280,7 +287,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'baozha',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/爆炸效果1/爆炸效果1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/爆炸效果1/爆炸效果1.mp4', 'video'),
     tags: ['爆炸', '火焰', '特效'],
   },
   {
@@ -289,7 +296,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/人物/人物-双人舞.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/人物/人物-双人舞.mp4', 'video'),
     tags: ['人物', '舞蹈', '双人'],
   },
   {
@@ -298,7 +305,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/人物/变身-1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/人物/变身-1.mp4', 'video'),
     tags: ['变身', '角色转换'],
   },
   {
@@ -307,7 +314,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '头号玩家',
-    path: '/assets/000电影画面/头号玩家/人物/全息投影-1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/头号玩家/人物/全息投影-1.mp4', 'video'),
     tags: ['全息', '投影', '科技'],
   },
   {
@@ -316,7 +323,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '奇异博士',
-    path: '/assets/000电影画面/奇异博士/奇异博士2-多维穿越.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/奇异博士/奇异博士2-多维穿越.mp4', 'video'),
     tags: ['多维', '穿越', '魔法'],
   },
   {
@@ -325,7 +332,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '子弹列车',
-    path: '/assets/000电影画面/子弹列车/人物-慢动作-落雪/人物-慢动作-落雪.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/子弹列车/人物-慢动作-落雪/人物-慢动作-落雪.mp4', 'video'),
     tags: ['慢动作', '雪', '人物'],
   },
   {
@@ -334,7 +341,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '子弹列车',
-    path: '/assets/000电影画面/子弹列车/人物-打斗/人物-打斗.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/子弹列车/人物-打斗/人物-打斗.mp4', 'video'),
     tags: ['打斗', '动作', '战斗'],
   },
   {
@@ -343,7 +350,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'lieche',
     movie: '子弹列车',
-    path: '/assets/000电影画面/子弹列车/列车-车内的人物/列车-车内的人物.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/子弹列车/列车-车内的人物/列车-车内的人物.mp4', 'video'),
     tags: ['列车', '人物', '车内'],
   },
   {
@@ -352,7 +359,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chengshiyunju',
     movie: '子弹列车',
-    path: '/assets/000电影画面/子弹列车/古建筑航拍落推镜/古建筑航拍落推镜.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/子弹列车/古建筑航拍落推镜/古建筑航拍落推镜.mp4', 'video'),
     tags: ['航拍', '古建筑', '推镜'],
   },
   {
@@ -361,7 +368,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '惊天魔盗团',
-    path: '/assets/000电影画面/惊天魔盗团/扔钥匙-水下.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/惊天魔盗团/扔钥匙-水下.mp4', 'video'),
     tags: ['水下', '魔术', '特写'],
   },
   {
@@ -370,7 +377,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '惊天魔盗团',
-    path: '/assets/000电影画面/惊天魔盗团/魔盗团停雨.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/惊天魔盗团/魔盗团停雨.mp4', 'video'),
     tags: ['魔术', '雨', '特效'],
   },
   {
@@ -379,7 +386,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '惊天魔盗团',
-    path: '/assets/000电影画面/惊天魔盗团/魔盗团开篇一镜到底.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/惊天魔盗团/魔盗团开篇一镜到底.mp4', 'video'),
     tags: ['一镜到底', '长镜头', '开场'],
   },
   {
@@ -388,7 +395,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '攻壳机动队',
-    path: '/assets/000电影画面/攻壳机动队/攻壳机动队开场.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/攻壳机动队/攻壳机动队开场.mp4', 'video'),
     tags: ['开场', '赛博朋克', '动画'],
   },
   {
@@ -397,7 +404,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'qita',
     movie: '明日世界',
-    path: '/assets/000电影画面/明日世界/坠落/坠落.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/明日世界/坠落/坠落.mp4', 'video'),
     tags: ['坠落', '动作', '惊险'],
   },
   {
@@ -406,7 +413,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '明日世界',
-    path: '/assets/000电影画面/明日世界/孙悟空化神/孙悟空化神.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/明日世界/孙悟空化神/孙悟空化神.mp4', 'video'),
     tags: ['变身', '神话', '特效'],
   },
   {
@@ -415,7 +422,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'shuimo',
     movie: '杨戬',
-    path: '/assets/000电影画面/杨戬/水墨动画/水墨动画.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/杨戬/水墨动画/水墨动画.mp4', 'video'),
     tags: ['水墨', '中国风', '动画'],
   },
   {
@@ -424,7 +431,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '杨戬',
-    path: '/assets/000电影画面/杨戬/空间变化/空间变化.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/杨戬/空间变化/空间变化.mp4', 'video'),
     tags: ['空间', '特效', '魔法'],
   },
   {
@@ -433,7 +440,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '洛基',
-    path: '/assets/000电影画面/洛基/时间管理局/时间管理局.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/洛基/时间管理局/时间管理局.mp4', 'video'),
     tags: ['时间', '科幻', '机构'],
   },
   {
@@ -442,7 +449,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'lieche',
     movie: '碟中谍',
-    path: '/assets/000电影画面/碟中谍/摩托车5/摩托车5.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/碟中谍/摩托车5/摩托车5.mp4', 'video'),
     tags: ['摩托车', '追逐', '动作'],
   },
   {
@@ -451,7 +458,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'lieche',
     movie: '碟中谍',
-    path: '/assets/000电影画面/碟中谍/跳飞机/跳飞机.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/碟中谍/跳飞机/跳飞机.mp4', 'video'),
     tags: ['跳伞', '飞机', '动作'],
   },
   {
@@ -460,7 +467,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '神奇动物',
-    path: '/assets/000电影画面/神奇动物/城市起雾/城市起雾.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/神奇动物/城市起雾/城市起雾.mp4', 'video'),
     tags: ['雾', '城市', '魔法'],
   },
   {
@@ -469,7 +476,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '神奇动物',
-    path: '/assets/000电影画面/神奇动物/驺吾/驺吾.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/神奇动物/驺吾/驺吾.mp4', 'video'),
     tags: ['神兽', '动物', '魔法'],
   },
   {
@@ -478,7 +485,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '终极审判',
-    path: '/assets/000电影画面/终极审判/云端数据/云端数据.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/终极审判/云端数据/云端数据.mp4', 'video'),
     tags: ['数据', '科技', '云'],
   },
   {
@@ -487,7 +494,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'mogong',
     movie: '终极审判',
-    path: '/assets/000电影画面/终极审判/全息投影/全息投影.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/终极审判/全息投影/全息投影.mp4', 'video'),
     tags: ['全息', '科技', '投影'],
   },
   {
@@ -496,7 +503,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'zhuandong',
     movie: '终极审判',
-    path: '/assets/000电影画面/终极审判/实转虚/实转虚.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/终极审判/实转虚/实转虚.mp4', 'video'),
     tags: ['转场', '虚实', '特效'],
   },
   {
@@ -505,7 +512,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '哪吒',
-    path: '/assets/000电影画面/哪吒/哪吒-开会1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/哪吒/哪吒-开会1.mp4', 'video'),
     tags: ['开会', '人物', '喜剧'],
   },
   {
@@ -514,7 +521,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '哪吒',
-    path: '/assets/000电影画面/哪吒/哪吒换脸.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/哪吒/哪吒换脸.mp4', 'video'),
     tags: ['换脸', '变身', '特效'],
   },
   {
@@ -523,7 +530,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '三国的星空',
-    path: '/assets/000电影画面/三国的星空/三国的星空--变身.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/三国的星空/三国的星空--变身.mp4', 'video'),
     tags: ['变身', '奇幻'],
   },
   {
@@ -532,7 +539,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chengshiyunju',
     movie: '三国的星空',
-    path: '/assets/000电影画面/三国的星空/三国的星空--城市片段.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/三国的星空/三国的星空--城市片段.mp4', 'video'),
     tags: ['城市', '航拍'],
   },
   {
@@ -541,7 +548,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'bianxing',
     movie: '冰雪奇缘',
-    path: '/assets/000电影画面/冰雪奇缘/变身-1/变身-1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/冰雪奇缘/变身-1/变身-1.mp4', 'video'),
     tags: ['变身', '冰雪', '公主'],
   },
   {
@@ -550,7 +557,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'jiazhang',
     movie: '冰雪奇缘',
-    path: '/assets/000电影画面/冰雪奇缘/城堡生长/城堡生长.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/冰雪奇缘/城堡生长/城堡生长.mp4', 'video'),
     tags: ['城堡', '生长', '魔法'],
   },
   {
@@ -559,7 +566,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'qita',
     movie: '无敌破坏王',
-    path: '/assets/000电影画面/无敌破坏王1.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/无敌破坏王1.mp4', 'video'),
     tags: ['动画', '游戏', '冒险'],
   },
   {
@@ -568,7 +575,7 @@ export const assets: Asset[] = [
     type: 'video',
     category: 'chuchang',
     movie: '向佐打戏',
-    path: '/assets/000电影画面/向佐打戏/向佐打戏.mp4',
+    path: getCloudinaryUrl('/assets/000电影画面/向佐打戏/向佐打戏.mp4', 'video'),
     tags: ['打斗', '动作', '武术'],
   },
   {
@@ -577,7 +584,7 @@ export const assets: Asset[] = [
     type: 'image',
     category: 'shipianwei',
     movie: '变形金刚',
-    path: '/assets/000电影画面/变形金刚/片尾1.png',
+    path: getCloudinaryUrl('/assets/000电影画面/变形金刚/片尾1.png', 'image'),
     tags: ['片尾', '谢幕'],
   },
 ];
